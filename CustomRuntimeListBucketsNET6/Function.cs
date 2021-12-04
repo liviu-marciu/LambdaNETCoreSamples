@@ -21,15 +21,6 @@ var ConvertJsonOrder2Ordx = async (DynamoDBEvent dynamoDBEvent, ILambdaContext c
            string orderJson = Document.FromAttributeMap(record.Dynamodb.NewImage).ToJson();
            context.Logger.LogLine(orderJson);
 
-
-
-           const string hingeLocation = "L";
-           int hinge1Position = 100;
-           int hinge2Position = 200;
-           int hinge3Position = 300;
-           int hinge4Position = 400;
-           int hinge5Position = 500;
-
            var order = JsonNode.Parse(orderJson);
            if (order == null) throw new Exception("Can't parse the order");
            JsonArray products = order["rooms"][0]["products"].AsArray();
@@ -42,12 +33,12 @@ var ConvertJsonOrder2Ordx = async (DynamoDBEvent dynamoDBEvent, ILambdaContext c
                    Width = int.Parse(product["attributes"].AsArray().First(a => a["name"].GetValue<string>() == "width")["value"].GetValue<string>()),
                    Height = int.Parse(product["attributes"].AsArray().First(a => a["name"].GetValue<string>() == "height")["value"].GetValue<string>()),
                    Depth = int.Parse(product["attributes"].AsArray().First(a => a["name"].GetValue<string>() == "depth")["value"].GetValue<string>()),
-                   HingeLocation = hingeLocation,
-                   Hinge1Position = hinge1Position,
-                   Hinge2Position = hinge2Position,
-                   Hinge3Position = hinge3Position,
-                   Hinge4Position = hinge4Position,
-                   Hinge5Position = hinge5Position
+                   HingeLocation = product["attributes"].AsArray().First(a=>a["name"].GetValue<string>() == "hinge-location")["value"].GetValue<string>(),
+                   Hinge1Position = int.Parse(product["attributes"].AsArray().First(a=>a["name"].GetValue<string>() == "hinge-1")["value"].GetValue<string>()),
+                   Hinge2Position = int.Parse(product["attributes"].AsArray().First(a=>a["name"].GetValue<string>() == "hinge-2")["value"].GetValue<string>()),
+                   Hinge3Position = int.Parse(product["attributes"].AsArray().First(a=>a["name"].GetValue<string>() == "hinge-3")["value"].GetValue<string>()),
+                   Hinge4Position = int.Parse(product["attributes"].AsArray().First(a=>a["name"].GetValue<string>() == "hinge-4")["value"].GetValue<string>()),
+                   Hinge5Position = int.Parse(product["attributes"].AsArray().First(a=>a["name"].GetValue<string>() == "hinge-5")["value"].GetValue<string>()),
                };
 
                ordx.AddDoor(door);
