@@ -34,11 +34,11 @@ var ConvertJsonOrder2Ordx = async (DynamoDBEvent dynamoDBEvent, ILambdaContext c
                    Height = int.Parse(product["attributes"].AsArray().First(a => a["name"].GetValue<string>() == "height")["value"].GetValue<string>()),
                    Depth = int.Parse(product["attributes"].AsArray().First(a => a["name"].GetValue<string>() == "depth")["value"].GetValue<string>()),
                    HingeLocation = product["attributes"].AsArray().First(a=>a["name"].GetValue<string>() == "hinge-location")["value"].GetValue<string>(),
-                   Hinge1Position = int.Parse(product["attributes"].AsArray().First(a=>a["name"].GetValue<string>() == "hinge-1")["value"].GetValue<string>()),
-                   Hinge2Position = int.Parse(product["attributes"].AsArray().First(a=>a["name"].GetValue<string>() == "hinge-2")["value"].GetValue<string>()),
-                   Hinge3Position = int.Parse(product["attributes"].AsArray().First(a=>a["name"].GetValue<string>() == "hinge-3")["value"].GetValue<string>()),
-                   Hinge4Position = int.Parse(product["attributes"].AsArray().First(a=>a["name"].GetValue<string>() == "hinge-4")["value"].GetValue<string>()),
-                   Hinge5Position = int.Parse(product["attributes"].AsArray().First(a=>a["name"].GetValue<string>() == "hinge-5")["value"].GetValue<string>()),
+                   Hinge1Position = int.Parse(product["attributes"].AsArray().First(a=>a["name"].GetValue<string>() == "hinge-1")["value"].GetValue<string>()) * 0.0393700787,
+                   Hinge2Position = int.Parse(product["attributes"].AsArray().First(a=>a["name"].GetValue<string>() == "hinge-2")["value"].GetValue<string>()) * 0.0393700787,
+                   Hinge3Position = int.Parse(product["attributes"].AsArray().First(a=>a["name"].GetValue<string>() == "hinge-3")["value"].GetValue<string>()) * 0.0393700787,
+                   Hinge4Position = int.Parse(product["attributes"].AsArray().First(a=>a["name"].GetValue<string>() == "hinge-4")["value"].GetValue<string>()) * 0.0393700787,
+                   Hinge5Position = int.Parse(product["attributes"].AsArray().First(a=>a["name"].GetValue<string>() == "hinge-5")["value"].GetValue<string>()) * 0.0393700787,
                };
 
                ordx.AddDoor(door);

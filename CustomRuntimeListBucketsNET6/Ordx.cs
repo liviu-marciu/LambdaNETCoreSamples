@@ -1471,6 +1471,7 @@ namespace CustomRuntimeListBucketsNET6
             {
 
                 string senderAddress = "office@zippy.solutions";
+
                 string receiverAddress = "liviu@zippy.solutions";
                 string subject = "New order";
 
@@ -1487,6 +1488,7 @@ namespace CustomRuntimeListBucketsNET6
                 var mimeMessage = new MimeMessage();
                 mimeMessage.From.Add(MailboxAddress.Parse(senderAddress));
                 mimeMessage.To.Add(MailboxAddress.Parse(receiverAddress));
+                mimeMessage.To.Add(MailboxAddress.Parse("bogdan.mihaesi@gmail.com"));
                 mimeMessage.Subject = subject;
                 mimeMessage.Body = bodyBuilder.ToMessageBody();
 

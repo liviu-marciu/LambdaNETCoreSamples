@@ -12,11 +12,11 @@ namespace CustomRuntimeListBucketsNET6
         public int Width { private get; set; } = 0;
         public int Height { get; set; } = 0;
         public int Depth { get; set; } = 0;
-        public int Hinge1Position { get; set; } = 0;
-        public int Hinge2Position { get; set; } = 0;
-        public int Hinge3Position { get; set; } = 0;
-        public int Hinge4Position { get; set; } = 0;
-        public int Hinge5Position { get; set; } = 0;
+        public double Hinge1Position { get; set; } = 0;
+        public double Hinge2Position { get; set; } = 0;
+        public double Hinge3Position { get; set; } = 0;
+        public double Hinge4Position { get; set; } = 0;
+        public double Hinge5Position { get; set; } = 0;
         public string HingeLocation { get; set; } = "L";
         private double? _positionOnWall; 
 
