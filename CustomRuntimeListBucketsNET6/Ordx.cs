@@ -1488,7 +1488,7 @@ namespace CustomRuntimeListBucketsNET6
                 var mimeMessage = new MimeMessage();
                 mimeMessage.From.Add(MailboxAddress.Parse(senderAddress));
                 mimeMessage.To.Add(MailboxAddress.Parse(receiverAddress));
-                mimeMessage.To.Add(MailboxAddress.Parse("bogdan.mihaesi@gmail.com"));
+//                mimeMessage.To.Add(MailboxAddress.Parse("bogdan.mihaesi@gmail.com"));
                 mimeMessage.Subject = subject;
                 mimeMessage.Body = bodyBuilder.ToMessageBody();
 
